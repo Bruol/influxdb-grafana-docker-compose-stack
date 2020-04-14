@@ -1,0 +1,23 @@
+version: '3'
+
+services:
+  influxdb:
+    restart: unless-stopped
+    image: influxdb:latest
+    ports: 
+      - "8086:8086"
+    volumes: 
+      - ./influxdb/:/var/lib/influxdb
+    environment: 
+      - INFLUXDB_ADMIN_USER=admin
+      - INFLUXDB_ADMIN_PASSWORD=admin
+  grafana:
+    image: grafana/grafana:latest
+    restart: unless-stopped
+    ports: 
+      - "3000:3000"
+    volumes: 
+      - ./grafana/:/var/lib/grafana
+    depends_on: 
+      - influxdb
+    
