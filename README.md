@@ -4,9 +4,8 @@ This is a simple docker-compose file for grafana and influxdb.
 
 ---
 
-just run:
-
+Replace **"USERNAME"** and **"PASSWORD"** with your username and password and run:
 
 ```bash
-
+docker-compose up
 ```
